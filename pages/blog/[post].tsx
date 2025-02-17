@@ -23,18 +23,6 @@
 //   //   }
 //   // }
   
-//   async function fetchData() {
-//     try {
-//       const res = await fetch(`/api/blogPost?slug=${pageUrl.split('/blog/')[1]}`);
-//       if (!res.ok) throw new Error('Failed to fetch blog post');
-  
-//       const { page, post } = await res.json();
-//       setPost({ banner: page, post: post });
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-  
 
 //   useEffect(() => {
 //     onEntryChange(() => fetchData());
@@ -124,25 +112,6 @@
 // //     return { notFound: true };
 // //   }
 // // }
-// export async function getServerSideProps({ params }: any) {
-//   try {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTED_URL}/api/blogPost/${params.post}`);
-//     if (!res.ok) throw new Error('Failed to fetch blog post');
-
-//     const { page, post } = await res.json();
-
-//     return {
-//       props: {
-//         pageUrl: `/blog/${params.post}`,
-//         blogPost: post,
-//         page,
-//       },
-//     };
-//   } catch (error) {
-//     console.error(error);
-//     return { notFound: true };
-//   }
-// }
 
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
@@ -153,7 +122,7 @@ import RenderComponents from '../../components/render-components';
 import ArchiveRelative from '../../components/archive-relative';
 import { Page, BlogPosts } from "../../typescript/pages";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPosts, page: Page, pageUrl: string}) {
   
